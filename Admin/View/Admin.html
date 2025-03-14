@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Registration</title>
+</head>
+<body>
+    <h1>Admin Registration</h1>
+    <form action="admin_register.php" method="post">
+        
+        <fieldset>
+            <legend>Admin Details</legend>
+            <label>Admin ID:</label>
+            <input type="text" name="admin_id" required><br><br>
+
+            <label>Role:</label>
+            <select id="role" name="role">
+                <option value="superadmin">Super Admin</option>
+                <option value="moderator">Moderator</option>
+                <option value="editor">Editor</option>
+            </select><br><br>
+
+            <label>Department:</label>
+            <input type="text" name="department" required><br><br>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Security</legend>
+            <label>Access Code:</label>
+            <input type="password" name="access_code" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Permissions</legend>
+            <input type="checkbox" name="permissions[]" value="manage_users"> Manage Users<br>
+            <input type="checkbox" name="permissions[]" value="manage_orders"> Manage Orders<br>
+            <input type="checkbox" name="permissions[]" value="edit_content"> Edit Content<br><br>
+        </fieldset>
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
