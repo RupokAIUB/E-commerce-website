@@ -1,0 +1,82 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: lightblue;
+}
+
+/* Form Styling */
+form {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+/* Fieldset Styling */
+fieldset {
+    border: 2px solid #ccc;
+    margin-bottom: 30px;
+    padding: 15px;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Legend Styling */
+legend {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Label Styling */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Input, Textarea, Select Styling */
+input, textarea, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: #218838;
+}
+
+/* Textarea */
+textarea {
+    resize: vertical;
+    max-width: 100%;
+}
+
+/* Form Container Centering */
+.form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
