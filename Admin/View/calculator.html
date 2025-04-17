@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+</head>
+<body>
+
+<h2>Calculator</h2>
+
+
+First Number: <input type="number" id="num1"><br><br>
+Second Number: <input type="number" id="num2"><br><br>
+
+
+Operation:
+<select id="operation">
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="*">*</option>
+  <option value="/">/</option>
+  <option value="%">Mod</option>
+  <option value="^">Power</option>
+</select><br><br>
+
+
+<button onclick="calculate()">Calculate</button><br><br>
+
+
+<p id="result">Result will appear here</p>
+
+<script>
+function calculate() {
+  let num1 = parseFloat(document.getElementById("num1").value);
+  let num2 = parseFloat(document.getElementById("num2").value);
+  let operation = document.getElementById("operation").value;
+  let result;
+
+  if (isNaN(num1) || isNaN(num2)) {
+    result = "Please enter valid numbers.";
+  } else {
+    switch(operation) {
+      case '+':
+        result = num1 + num2;
+        break;
+      case '-':
+        result = num1 - num2;
+        break;
+      case '*':
+        result = num1 * num2;
+        break;
+      case '/':
+        result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero.";
+        break;
+      case '%':
+        result = num1 % num2;
+        break;
+      case '^':
+        result = Math.pow(num1, num2);
+        break;
+      default:
+        result = "Invalid operation.";
+    }
+  }
+
+  document.getElementById("result").innerHTML = "Result: " + result;
+}
+</script>
+
+</body>
+</html>

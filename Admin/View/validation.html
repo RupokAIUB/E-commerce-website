@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Registration</title>
+    <link rel="stylesheet" type="text/css" href="admin.css">
+</head>
+<body>
+    <h1>Admin Registration</h1>
+    
+    <form id="registration-form" action="admin_register.php" method="post">
+        
+        <fieldset class="form-section">
+            <legend>Admin Details</legend>
+            <label>Admin ID:</label>
+            <input id="admin-id" type="text" name="admin_id" required><br><br>
+
+            <label>Role:</label>
+            <select id="role" name="role">
+                <option value="superadmin">Super Admin</option>
+                <option value="moderator">Moderator</option>
+                <option value="editor">Editor</option>
+            </select><br><br>
+
+            <label>Department:</label>
+            <input class="input-field" type="text" name="department" required><br><br>
+        </fieldset>
+        
+        <fieldset class="form-section">
+            <legend>Security</legend>
+            <label>Access Code:</label>
+            <input id="access-code" type="password" name="access_code" required><br><br>
+        </fieldset>
+
+        <fieldset class="form-section">
+            <legend>Permissions</legend>
+            <input type="checkbox" name="permissions[]" value="manage_users"> Manage Users<br>
+            <input type="checkbox" name="permissions[]" value="manage_orders"> Manage Orders<br>
+            <input type="checkbox" name="permissions[]" value="edit_content"> Edit Content<br><br>
+        </fieldset>
+
+        <input id="submit-btn" type="submit" value="Register">
+    </form>
+    <script>
+        document.getElementById("registration-form").onsubmit = function(event) {
+            let isValid = true;
+        
+            
+            document.getElementById("admin-id-error").innerHTML = "";
+            document.getElementById("department-error").innerHTML = "";
+            document.getElementById("access-code-error").innerHTML = "";
+            document.getElementById("permissions-error").innerHTML = "";
+            document.getElementById("role-error").innerHTML = "";
+        
+            
+            let adminId = document.getElementById("admin-id").value;
+            if (!/^[a-zA-Z0-9]{5,}$/.test(adminId)) {
+                document.getElementById("admin-id-error").innerHTML = "Admin ID must be alphanumeric and at least 5 characters.";
+                isValid = false;
+            }
+        
+            
+            let department = document.querySelector("input[name='department']").value;
+            if (department.trim() === "") {
+                document.getElementById("department-error").innerHTML = "Department is required.";
+                isValid = false;
+            }
+        
+            
+            let accessCode = document.getElementById("access-code").value;
+            if (accessCode.length < 6) {
+                document.getElementById("access-code-error").innerHTML = "Access Code must be at least 6 characters.";
+                isValid = false;
+            }
+        
+            
+            let permissionBoxes = document.querySelectorAll("input[name='permissions[]']:checked");
+            if (permissionBoxes.length === 0) {
+                document.getElementById("permissions-error").innerHTML = "Select at least one permission.";
+                isValid = false;
+            }
+        
+            
+            let role = document.getElementById("role").value;
+            if (role === "") {
+                document.getElementById("role-error").innerHTML = "Please select a role.";
+                isValid = false;
+            }
+        
+            
+            if (!isValid) {
+                event.preventDefault();
+            }
+        };
+        </script>
+        
+</body>
+</html>
